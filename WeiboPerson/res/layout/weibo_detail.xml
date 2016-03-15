@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white_bg" >
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+    <include layout="@layout/top_title"/>
+    
+  <!--   <com.charles.weibo.ui.PullToRefreshScrollView
+        android:id="@+id/svWeiboDetail"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" 
+        android:cacheColorHint="#00000000"
+        android:fadingEdge="none"
+        android:listSelector="@android:color/transparent"
+        android:divider="@null"
+        android:focusable="true"
+    	android:focusableInTouchMode="true"
+    	android:visibility="gone"
+    	android:layout_marginBottom="40dp"
+        >
+     weibo detail 已移至 weibo_detail_sv
+    </com.charles.weibo.ui.PullToRefreshScrollView> -->
+    
+       <com.charles.weibo.ui.SingleLayoutListView
+        android:id="@+id/lvComment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_gray"
+        android:cacheColorHint="@android:color/transparent"
+        android:fadeScrollbars="true"
+        android:fadingEdge="none"
+        android:focusableInTouchMode="false"
+		android:focusable="false" 
+		android:clickable="false"
+		android:descendantFocusability="blocksDescendants"
+		android:layout_marginBottom="40dp"
+		android:footerDividersEnabled="false"
+        /> 
+    </LinearLayout>
+    
+    
+    
+    <!--Bottom  -->
+     <LinearLayout 
+             android:layout_width="match_parent"
+        	 android:layout_height="40dp"
+        	 android:orientation="horizontal"
+        	 android:gravity="center"
+        	 android:background="@drawable/rect_gray_white_bg_no_left_right"
+        	 android:layout_gravity="bottom"
+        	 >
+                <LinearLayout 
+                    android:id="@+id/btnReposts"
+             android:layout_width="0dp"
+        	 android:layout_height="wrap_content"
+        	 android:orientation="horizontal"
+        	 android:gravity="center"
+        	 android:layout_weight="1">
+             	<ImageView 
+             	    android:layout_width="30dp"
+        	 		android:layout_height="30dp"
+        	 		android:src="@drawable/market_toolbar_share_normal"
+             	    />
+             	<TextView
+             	    android:id="@+id/txtRepostsNum"  
+             	    android:layout_width="wrap_content"
+        	 		android:layout_height="wrap_content"
+        	 		android:textSize="@dimen/font_14"
+        	 		android:textColor="@color/font_gray"
+        	 		android:text="@string/share"
+        	 		android:singleLine="true" />
+            </LinearLayout>
+            <ImageView 
+                 android:layout_width="wrap_content"
+        	 	android:layout_height="wrap_content"
+        	 	android:src="@drawable/market_action_divider"
+                />
+            
+             <LinearLayout 
+                 android:id="@+id/btnComment"
+             android:layout_width="0dp"
+        	 android:layout_height="wrap_content"
+        	 android:orientation="horizontal"
+        	 android:layout_weight="1"
+        	 android:gravity="center">
+             	<ImageView 
+             	     android:layout_width="30dp"
+        	 		android:layout_height="30dp"
+        	 		android:src="@drawable/market_toolbar_comments_normal"
+             	    />
+             	<TextView
+             	    android:id="@+id/txtCommentNum"
+             	    android:layout_width="wrap_content"
+        	 		android:layout_height="wrap_content"
+        	 		android:text="@string/comment" 
+        	 		android:textSize="@dimen/font_14"
+        	 		android:textColor="@color/font_gray"
+        	 		android:singleLine="true"
+        	 		/>
+            </LinearLayout>
+              <ImageView 
+                 android:layout_width="wrap_content"
+        	 	android:layout_height="wrap_content"
+        	 	android:src="@drawable/market_action_divider"
+                />
+             <LinearLayout 
+                 android:id="@+id/btnAttitudes"
+             android:layout_width="0dp"
+        	 android:layout_height="match_parent"
+        	 android:orientation="horizontal"
+        	 android:layout_weight="1"
+        	 android:gravity="center">
+             	<ImageView 
+             	     android:layout_width="25dp"
+        	 		android:layout_height="25dp"
+        	 		android:src="@drawable/toolbar_icon_unlike"
+             	    />
+             	<TextView
+             	    android:id="@+id/txtAttitudesNum"
+             	    android:layout_width="wrap_content"
+        	 		android:layout_height="wrap_content"
+        	 		android:text="@string/praise"
+        	 		android:layout_marginLeft="2dp"
+        	 		android:textSize="@dimen/font_14"
+        	 		android:textColor="@color/font_gray"
+        	 		android:singleLine="true" />
+            </LinearLayout>
+       </LinearLayout>
+       
+     
+
+       
+</FrameLayout>

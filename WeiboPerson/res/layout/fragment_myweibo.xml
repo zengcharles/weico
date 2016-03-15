@@ -1,0 +1,104 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  	android:background="@color/black" >
+
+
+   	
+<!--    <ImageView 
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+      
+       
+       /> -->
+
+	<LinearLayout 
+     	android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/adward_background"
+    >
+	    <ImageView 
+	        android:layout_width="65dp"
+        	android:layout_height="65dp"
+        	android:layout_marginTop="90dp"
+        	android:src="@drawable/avatar_default"
+        	
+	        />
+	    
+	    <LinearLayout 
+	        android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:layout_marginTop="10dp"
+	        >
+	        <TextView
+	            android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:text="Zeng偉良"
+        		android:textColor="@color/white"
+        		android:layout_gravity="center_horizontal"
+        		android:singleLine="true"
+        		android:layout_marginRight="10dp"
+	            />
+	        <ImageView 
+	            android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:src="@drawable/userinfo_icon_male"
+	            />
+	    </LinearLayout>
+	    	    <LinearLayout 
+	        android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:layout_marginTop="10dp"
+	        android:gravity="center"
+	        >
+	        <TextView
+	            android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:text="關注 228"
+        		android:textColor="@color/white"
+        		android:layout_gravity="center_horizontal"
+        		android:singleLine="true"
+        		android:layout_marginRight="5dp"
+	            />
+	        <View 
+	             android:layout_width="0.1dp"
+        		 android:layout_height="match_parent"
+        		 android:background="@color/white"
+        		 android:padding="10dp"
+	            />
+	          <TextView
+	            android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:text="粉絲 304"
+        		android:layout_marginLeft="5dp"
+        		android:textColor="@color/white"
+        		android:layout_gravity="center_horizontal"
+        		android:singleLine="true"
+        		
+	            />
+	        
+	    </LinearLayout>
+	    
+	</LinearLayout>
+	
+	<!--    <LinearLayout 
+       android:layout_width="match_parent"
+       android:layout_height="45dp"
+       android:gravity="center_vertical"
+       android:background="@drawable/bg_reporting"
+       >
+       <ImageView 
+           android:layout_width="60dp"
+           android:layout_height="wrap_content"
+           android:src="@drawable/btn_back_highlighted"
+           />
+   </LinearLayout> -->
+
+   <include layout="@layout/top_title" />
+    
+</FrameLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <com.charles.weibo.ui.SingleLayoutListView
+        android:id="@+id/mListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_gray"
+        android:cacheColorHint="@android:color/transparent"
+        android:fadeScrollbars="true"
+        android:fadingEdge="none"
+        android:focusableInTouchMode="false"
+		android:focusable="false" 
+		android:clickable="false"
+		android:descendantFocusability="blocksDescendants" 
+        /> 
+<!-- android:divider="@drawable/divider_cutoffrule"  android:divider="@drawable/divider_cutoffrule" -->
+</LinearLayout>

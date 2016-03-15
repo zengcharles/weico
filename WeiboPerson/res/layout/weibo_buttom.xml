@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+             android:layout_width="match_parent"
+        	 android:layout_height="40dp"
+        	 android:orientation="horizontal"
+        	 android:gravity="center"
+        	 android:background="@drawable/market_btn_rect_gray_normal"
+        	 >
+                <LinearLayout 
+             android:layout_width="0dp"
+        	 android:layout_height="wrap_content"
+        	 android:orientation="horizontal"
+        	 android:gravity="center"
+        	 android:layout_weight="1">
+             	<ImageView 
+             	    android:layout_width="30dp"
+        	 		android:layout_height="30dp"
+        	 		android:src="@drawable/market_toolbar_share_normal"
+             	    />
+             	<TextView
+             	    android:layout_width="wrap_content"
+        	 		android:layout_height="wrap_content"
+        	 		android:text="@string/share"
+        	 		android:textSize="@dimen/font_14"
+        	 		android:textColor="@color/font_gray"
+        	 		android:singleLine="true" />
+            </LinearLayout>
+            <ImageView 
+                 android:layout_width="wrap_content"
+        	 	android:layout_height="wrap_content"
+        	 	android:src="@drawable/market_action_divider"
+                />
+            
+             <LinearLayout 
+             android:layout_width="0dp"
+        	 android:layout_height="wrap_content"
+        	 android:orientation="horizontal"
+        	 android:layout_weight="1"
+        	 android:gravity="center">
+             	<ImageView 
+             	     android:layout_width="30dp"
+        	 		android:layout_height="30dp"
+        	 		android:src="@drawable/market_toolbar_comments_normal"
+             	    />
+             	<TextView
+             	    android:layout_width="wrap_content"
+        	 		android:layout_height="wrap_content"
+        	 		android:text="@string/comment" 
+        	 		android:textSize="@dimen/font_14"
+        	 		android:textColor="@color/font_gray"
+        	 		android:singleLine="true"
+        	 		/>
+            </LinearLayout>
+              <ImageView 
+                 android:layout_width="wrap_content"
+        	 	android:layout_height="wrap_content"
+        	 	android:src="@drawable/market_action_divider"
+                />
+             <LinearLayout 
+             android:layout_width="0dp"
+        	 android:layout_height="match_parent"
+        	 android:orientation="horizontal"
+        	 android:layout_weight="1"
+        	 android:gravity="center">
+             	<ImageView 
+             	     android:layout_width="25dp"
+        	 		android:layout_height="25dp"
+        	 		android:src="@drawable/toolbar_icon_unlike"
+             	    />
+             	<TextView
+             	    android:layout_width="wrap_content"
+        	 		android:layout_height="wrap_content"
+        	 		android:text="@string/praise"
+        	 		android:layout_marginLeft="2dp"
+        	 		android:textSize="@dimen/font_14"
+        	 		android:textColor="@color/font_gray"
+        	 		android:singleLine="true" />
+            </LinearLayout>
+       </LinearLayout>
+
+</LinearLayout>

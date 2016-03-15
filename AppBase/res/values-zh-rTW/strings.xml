@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, BaseActivity!</string>
+    <string name="appbase_name">框架</string>
+    <string name="OK">确定</string>
+	<string name="CANCEL">取消</string>
+	<string name="TIPS">提示</string>
+	<string name="DOWNLOADING">正在下载文件</string>
+	<string name="APP_UPDATE">应用更新</string>
+	<string name="APP_FORCE_UPDATE_TIPS">即将更新至某版本，如不更新将无法使用</string>
+	<string name="APP_OPTIONAL_UPDATE_TIPS">即将更新至某版本</string>
+	<string name="PREPARE_TO_INSTALL">即将更新至某版本</string>
+	<string name="NETWORK_ERROR">网络连接不可用，请连接网络</string>
+	<string name="DOWNLOAD_FAIL">下载失败，请检查网络</string>
+</resources>

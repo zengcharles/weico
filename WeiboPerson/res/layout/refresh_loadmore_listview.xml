@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <!--com.charles.weibo.ui.SingleLayoutListView  -->
+
+     <com.charles.weibo.ui.SingleLayoutListView
+        android:id="@+id/mListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_gray"
+        android:cacheColorHint="@android:color/transparent"
+        android:fadeScrollbars="true"
+        android:fadingEdge="none"
+     	 android:divider="@drawable/divider_cutoffrule"
+        android:listSelector="@android:color/transparent"  
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        /> 
+        <!-- android:divider="@drawable/divider_cutoffrule"    -->
+</LinearLayout>
+  

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rect_gray_white_dialog"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/rect_blue" >
+
+        <TextView
+            android:id="@+id/txtTitle"
+            style="@style/LianAlertDialogText.Title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:gravity="center"
+            android:text="提示"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_20" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="@color/gray_bg" />
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txtContent"
+            style="@style/LianAlertDialogText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:minHeight="50dip"
+            android:text="111"
+            android:gravity="center_vertical"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:textColor="@color/font_black"
+            android:textSize="@dimen/font_20" />
+    </LinearLayout>
+
+<!--     <View -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="1dip" -->
+<!--         android:background="@color/gray_bg" /> -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btnLeft"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_gray_btn_selector"
+            android:padding="10dip"
+            android:singleLine="true"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="9dp"
+            android:textColor="@drawable/font_blue_link_selector"
+            android:textSize="@dimen/font_20" />
+
+        <Button
+            android:id="@+id/btnMiddle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_gray_btn_selector"
+            android:padding="10dip"
+            android:singleLine="true"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="9dp"
+            android:textColor="@drawable/font_blue_link_selector"
+            android:textSize="@dimen/font_20" />
+
+
+        <Button
+            android:id="@+id/btnRight"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="9dp"
+            android:background="@drawable/dialog_gray_btn_selector"
+            android:padding="10dip"
+            android:singleLine="true"
+            android:textColor="@drawable/font_blue_link_selector"
+            android:textSize="@dimen/font_20" />
+    </LinearLayout>
+
+</LinearLayout>

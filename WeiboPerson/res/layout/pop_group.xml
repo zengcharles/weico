@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/font_gray" >
+    
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:text="没有这接口的权限，怎么做。"
+        />
+    <ListView
+		android:id="@+id/lvGroup"
+		android:layout_width="140dp"
+		android:layout_height="match_parent"
+        />
+    
+
+</LinearLayout>

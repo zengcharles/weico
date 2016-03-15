@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="bg_while">#ffffff</color>
+    <color name="tab_while">#FAFAFA</color>
+    <color name="bg_gray">#F2F2F2</color>
+    
+    <!--alert color  -->
+    <color name="alert">#CC0000</color>
+    <color name="confirm">#FF8800</color>
+    <color name="info">#669900</color>
+    <!-- font color -->
+    <color name="font_gray">#808080</color>
+    <color name="font_light_black">#303030</color>
+    <color name="font_light_gray">#DEDEDE</color>
+    <color name="checked_false">#999999</color>
+    <color name="checked_true">#FF7F24</color>
+
+    
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_text">#ffffffff</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="viewfinder_frame">#ff000000</color>
+    <color name="viewfinder_laser">#ffff0000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="grass_green">#A9EE49</color>
+    <color name="green_bg">#43ab6f</color>
+    <color name="greenline">#33CC66</color>
+    <color name="red">#FF0000</color>
+    <color name="darker_green">#006600</color>
+    <color name="darker_gray">#666666</color>
+    <color name="light_green">#66FF99</color>
+    <color name="main_bg">#FFFFFF</color>
+    <color name="blue_bg">#02AFF1</color>
+    <color name="orange_bg">#FC9603</color>
+    <color name="blue_bg_pressed">#00AFF0</color>
+    <color name="gray_bg">#999999</color>
+    <color name="white_bg">#ffffff</color>
+    <color name="border_line">#cccccc</color>
+    <color name="main_font_color">#ffffff</color>
+    <color name="font_black">#494949</color>
+    <color name="font_orange">#FA9600</color>
+    <color name="font_bule">#63B8FF</color>
+    <color name="font_red">#c00000</color>
+    <color name="font_hint">#9fa0a0</color>
+    <color name="font_F8F8F8">#f8f8f8</color>
+    <color name="font_CCCCCC">#CCCCCC</color>
+    <color name="login_bg_gray">#FFE3E3E7</color>
+    <color name="light_gray">#F2F2F2</color>
+    <color name="more_light_blue">#d3e3ff</color>
+    <color name="light_blue">#bcd4fe</color>
+    <color name="onclick_blue">#506496</color>
+    <color name="bottom_menu">#fc9a0c</color>
+    <color name="main_border">#e4e4e4</color>
+    <color name="dark_red">#e65a4b</color>
+    <color name="gray_e2e2e2">#e2e2e2</color>
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- new refresh and load more  Start  ListView 自動加載更多 -->
+    <color name="black">#000000</color>
+    <color name="pull_refresh_textview">#000000</color>
+    <color name="gold">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
+    <!-- Title Bar -->
+    <color name="title_bar_text_blue">#253f83</color>
+    <color name="title_bar_text_red">#b70e17</color>
+    <color name="title_bar_btn_back">#5f86ea</color>
+    <!-- Navigation Bar -->
+    <color name="navigation_bar_highlight_blue">#253974</color>
+    <color name="navigation_bar_bg_red">#b70e17</color>
+    <!-- News List Text -->
+    <color name="news_item_text_title">#000000</color>
+    <color name="news_item_text_subtitle">#7f7f7f</color>
+    <!-- TabHost -->
+    <color name="tabhost_bg">#f7f7f7</color>
+    <color name="tabhost_text_normal">#999999</color>
+    <color name="tabhost_text_checked">#cb101a</color>
+    <!-- loding page bg -->
+    <color name="loading_page_bg">#fdfdfd</color>
+    <!-- Instant List -->
+    <color name="news_instant_item_text_time">#3863d3</color>
+	<!-- new refresh and load more  End  -->
+</resources>
