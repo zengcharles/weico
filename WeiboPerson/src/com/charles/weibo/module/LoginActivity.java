@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.base.BaseActivity;
+import com.charles.weibo.module.base.BaseActivity;
 import com.charles.weibo.R;
 import com.charles.weibo.common.Constants;
 import com.charles.weibo.entity.UserModel;
@@ -70,7 +70,6 @@ public class LoginActivity extends BaseActivity{
 				intent.setClass(LoginActivity.this, MainActivity.class);
 		        startActivity(intent);
 		        finish();
-		        overridePendingTransition(R.anim.slide_left_in,R.anim.slide_left_out);
 			}else {
 				// 以下几种情况，您会收到 Code：
 				// 1. 当您未在平台上注册的应用程序的包名与签名时；

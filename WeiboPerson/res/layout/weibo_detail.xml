@@ -64,11 +64,6 @@
         	 android:orientation="horizontal"
         	 android:gravity="center"
         	 android:layout_weight="1">
-             	<ImageView 
-             	    android:layout_width="30dp"
-        	 		android:layout_height="30dp"
-        	 		android:src="@drawable/market_toolbar_share_normal"
-             	    />
              	<TextView
              	    android:id="@+id/txtRepostsNum"  
              	    android:layout_width="wrap_content"
@@ -76,6 +71,8 @@
         	 		android:textSize="@dimen/font_14"
         	 		android:textColor="@color/font_gray"
         	 		android:text="@string/share"
+        	 		android:gravity="center"
+        	 		android:drawableLeft="@drawable/market_toolbar_share_normal"
         	 		android:singleLine="true" />
             </LinearLayout>
             <ImageView 
@@ -91,11 +88,6 @@
         	 android:orientation="horizontal"
         	 android:layout_weight="1"
         	 android:gravity="center">
-             	<ImageView 
-             	     android:layout_width="30dp"
-        	 		android:layout_height="30dp"
-        	 		android:src="@drawable/market_toolbar_comments_normal"
-             	    />
              	<TextView
              	    android:id="@+id/txtCommentNum"
              	    android:layout_width="wrap_content"
@@ -103,6 +95,8 @@
         	 		android:text="@string/comment" 
         	 		android:textSize="@dimen/font_14"
         	 		android:textColor="@color/font_gray"
+        	 		android:gravity="center"
+        	 		android:drawableLeft="@drawable/market_toolbar_comments_normal"
         	 		android:singleLine="true"
         	 		/>
             </LinearLayout>

@@ -6,16 +6,21 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.charles.weibo.R;
+import com.charles.weibo.common.AppStatic;
 import com.charles.weibo.module.LoginActivity;
+import com.charles.weibo.service.CheckVersionService;
 
 public class InitActivity extends Activity {
+	
+	// 检测版本是否完成
+	private boolean mIsCheckVersionDone = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_init);
-		handler.postDelayed(runnable, 0);
+		handler.postDelayed(runnable, 2000);
 	}
 	  
 	Handler handler = new Handler();

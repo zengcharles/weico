@@ -12,18 +12,33 @@ public final class R {
         public static final int blue_loading=0x7f040000;
         public static final int bottomview_anim_enter=0x7f040001;
         public static final int bottomview_anim_exit=0x7f040002;
-        public static final int orange_loading=0x7f040003;
-        public static final int popwindow_in=0x7f040004;
-        public static final int popwindow_out=0x7f040005;
-        public static final int rotate=0x7f040006;
-        public static final int slide_bottom_in=0x7f040007;
-        public static final int slide_left_in=0x7f040008;
-        public static final int slide_left_out=0x7f040009;
-        public static final int slide_right_in=0x7f04000a;
-        public static final int slide_right_out=0x7f04000b;
-        public static final int slide_top_out=0x7f04000c;
-        public static final int welcome_loading=0x7f04000d;
-        public static final int white_loading=0x7f04000e;
+        public static final int fade_in=0x7f040003;
+        public static final int fade_out=0x7f040004;
+        public static final int head_in=0x7f040005;
+        public static final int head_out=0x7f040006;
+        public static final int hold=0x7f040007;
+        public static final int orange_loading=0x7f040008;
+        public static final int popwindow_in=0x7f040009;
+        public static final int popwindow_out=0x7f04000a;
+        public static final int push_bottom_in=0x7f04000b;
+        public static final int push_bottom_out=0x7f04000c;
+        public static final int push_top_in=0x7f04000d;
+        public static final int push_top_in2=0x7f04000e;
+        public static final int push_top_out=0x7f04000f;
+        public static final int push_top_out2=0x7f040010;
+        public static final int rotate=0x7f040011;
+        public static final int slide_bottom_in=0x7f040012;
+        public static final int slide_in_from_left=0x7f040013;
+        public static final int slide_in_from_right=0x7f040014;
+        public static final int slide_left_in=0x7f040015;
+        public static final int slide_left_out=0x7f040016;
+        public static final int slide_out_to_left=0x7f040017;
+        public static final int slide_out_to_right=0x7f040018;
+        public static final int slide_right_in=0x7f040019;
+        public static final int slide_right_out=0x7f04001a;
+        public static final int slide_top_out=0x7f04001b;
+        public static final int welcome_loading=0x7f04001c;
+        public static final int white_loading=0x7f04001d;
     }
     public static final class array {
         /**  Base 
@@ -388,73 +403,76 @@ containing a value of this type.
         public static final int pop_following_background=0x7f020086;
         public static final int pop_following_background_press=0x7f020087;
         public static final int pop_following_background_selector=0x7f020088;
-        public static final int progressbar_bg=0x7f020089;
-        public static final int radius_2_gray_white_bg=0x7f02008a;
-        public static final int radius_3_gray=0x7f02008b;
-        public static final int radius_3_white=0x7f02008c;
-        public static final int radius_5_white=0x7f02008d;
-        public static final int radius_7_white=0x7f02008e;
-        public static final int radius_7_white_stroke=0x7f02008f;
-        public static final int radius_red_botton=0x7f020090;
-        public static final int rect_blue=0x7f020091;
-        public static final int rect_gray_bg_no_left_right=0x7f020092;
-        public static final int rect_gray_white_bg_no_left_right=0x7f020093;
-        public static final int rect_gray_white_dialog=0x7f020094;
-        public static final int serv_cat_popwin_item_selector=0x7f020095;
-        public static final int tab_btn_cont=0x7f020096;
-        public static final int tab_btn_img=0x7f020097;
-        public static final int tab_btn_more=0x7f020098;
-        public static final int tab_main_btn_text=0x7f020099;
-        public static final int tabbar_home=0x7f02009a;
-        public static final int tabbar_home_highlighted=0x7f02009b;
-        public static final int tabbar_home_selected=0x7f02009c;
-        public static final int tabbar_message_center=0x7f02009d;
-        public static final int tabbar_message_center_highlighted=0x7f02009e;
-        public static final int tabbar_message_center_selected=0x7f02009f;
-        public static final int tabbar_profile=0x7f0200a0;
-        public static final int tabbar_profile_highlighted=0x7f0200a1;
-        public static final int tabbar_profile_selected=0x7f0200a2;
-        public static final int timeline_trend_icon_unlike=0x7f0200a3;
-        public static final int toolbar_icon_unlike=0x7f0200a4;
-        public static final int userinfo_icon_female=0x7f0200a5;
-        public static final int userinfo_icon_male=0x7f0200a6;
-        public static final int welcome_android=0x7f0200a7;
-        public static final int welcome_android_slogan=0x7f0200a8;
-        public static final int welcome_loading0=0x7f0200a9;
-        public static final int welcome_loading1=0x7f0200aa;
-        public static final int welcome_loading10=0x7f0200ab;
-        public static final int welcome_loading2=0x7f0200ac;
-        public static final int welcome_loading3=0x7f0200ad;
-        public static final int welcome_loading4=0x7f0200ae;
-        public static final int welcome_loading5=0x7f0200af;
-        public static final int welcome_loading6=0x7f0200b0;
-        public static final int welcome_loading7=0x7f0200b1;
-        public static final int welcome_loading8=0x7f0200b2;
-        public static final int welcome_loading9=0x7f0200b3;
-        public static final int wheel_bg=0x7f0200b4;
-        public static final int wheel_val=0x7f0200b5;
-        public static final int widget_icon_write=0x7f0200b6;
-        public static final int widget_icon_write_highlighted=0x7f0200b7;
-        public static final int write_selecter=0x7f0200b8;
+        public static final int progress_bar_states=0x7f020089;
+        public static final int progressbar_bg=0x7f02008a;
+        public static final int radius_2_gray_white_bg=0x7f02008b;
+        public static final int radius_3_gray=0x7f02008c;
+        public static final int radius_3_white=0x7f02008d;
+        public static final int radius_5_white=0x7f02008e;
+        public static final int radius_7_white=0x7f02008f;
+        public static final int radius_7_white_stroke=0x7f020090;
+        public static final int radius_red_botton=0x7f020091;
+        public static final int rect_blue=0x7f020092;
+        public static final int rect_gray_bg_no_left_right=0x7f020093;
+        public static final int rect_gray_white_bg_no_left_right=0x7f020094;
+        public static final int rect_gray_white_dialog=0x7f020095;
+        public static final int serv_cat_popwin_item_selector=0x7f020096;
+        public static final int sliding_back_shadow=0x7f020097;
+        public static final int tab_btn_cont=0x7f020098;
+        public static final int tab_btn_img=0x7f020099;
+        public static final int tab_btn_more=0x7f02009a;
+        public static final int tab_main_btn_text=0x7f02009b;
+        public static final int tabbar_home=0x7f02009c;
+        public static final int tabbar_home_highlighted=0x7f02009d;
+        public static final int tabbar_home_selected=0x7f02009e;
+        public static final int tabbar_message_center=0x7f02009f;
+        public static final int tabbar_message_center_highlighted=0x7f0200a0;
+        public static final int tabbar_message_center_selected=0x7f0200a1;
+        public static final int tabbar_profile=0x7f0200a2;
+        public static final int tabbar_profile_highlighted=0x7f0200a3;
+        public static final int tabbar_profile_selected=0x7f0200a4;
+        public static final int timeline_trend_icon_unlike=0x7f0200a5;
+        public static final int toolbar_icon_unlike=0x7f0200a6;
+        public static final int userinfo_icon_female=0x7f0200a7;
+        public static final int userinfo_icon_male=0x7f0200a8;
+        public static final int welcome_android=0x7f0200a9;
+        public static final int welcome_android_slogan=0x7f0200aa;
+        public static final int welcome_loading0=0x7f0200ab;
+        public static final int welcome_loading1=0x7f0200ac;
+        public static final int welcome_loading10=0x7f0200ad;
+        public static final int welcome_loading2=0x7f0200ae;
+        public static final int welcome_loading3=0x7f0200af;
+        public static final int welcome_loading4=0x7f0200b0;
+        public static final int welcome_loading5=0x7f0200b1;
+        public static final int welcome_loading6=0x7f0200b2;
+        public static final int welcome_loading7=0x7f0200b3;
+        public static final int welcome_loading8=0x7f0200b4;
+        public static final int welcome_loading9=0x7f0200b5;
+        public static final int wheel_bg=0x7f0200b6;
+        public static final int wheel_val=0x7f0200b7;
+        public static final int widget_icon_write=0x7f0200b8;
+        public static final int widget_icon_write_highlighted=0x7f0200b9;
+        public static final int write_selecter=0x7f0200ba;
     }
     public static final class id {
-        public static final int btnAttitudes=0x7f0a0059;
-        public static final int btnBack=0x7f0a0055;
+        public static final int btnAttitudes=0x7f0a005c;
+        public static final int btnBack=0x7f0a0058;
         public static final int btnCancel=0x7f0a0002;
         public static final int btnClearLoc=0x7f0a0018;
-        public static final int btnComment=0x7f0a0058;
+        public static final int btnComment=0x7f0a005b;
         public static final int btnLeft=0x7f0a004c;
         public static final int btnLogin=0x7f0a000d;
         public static final int btnMiddle=0x7f0a004d;
         public static final int btnOperate=0x7f0a0035;
-        public static final int btnRefresh=0x7f0a0042;
-        public static final int btnReposts=0x7f0a0057;
+        public static final int btnRefresh=0x7f0a0041;
+        public static final int btnReposts=0x7f0a005a;
         public static final int btnResp=0x7f0a0028;
         public static final int btnRight=0x7f0a004e;
         public static final int btnSend=0x7f0a0005;
         public static final int container=0x7f0a000b;
         public static final int content=0x7f0a004a;
-        public static final int day=0x7f0a0052;
+        public static final int content_view=0x7f0a0051;
+        public static final int day=0x7f0a0055;
         public static final int fill=0x7f0a0001;
         public static final int fragment_cardcase=0x7f0a0010;
         public static final int fragment_home=0x7f0a000f;
@@ -465,7 +483,7 @@ containing a value of this type.
         public static final int head_lastUpdatedTextView=0x7f0a0047;
         public static final int head_progressBar=0x7f0a0045;
         public static final int head_tipsTextView=0x7f0a0046;
-        public static final int hour=0x7f0a0053;
+        public static final int hour=0x7f0a0056;
         public static final int image=0x7f0a0020;
         public static final int imgBarAdd=0x7f0a000a;
         public static final int imgBarAt=0x7f0a0007;
@@ -475,36 +493,38 @@ containing a value of this type.
         public static final int imgOldWeobo=0x7f0a0033;
         public static final int imgSendWeico=0x7f0a001f;
         public static final int imgUserIcon=0x7f0a0025;
-        public static final int imgWeibo=0x7f0a005b;
+        public static final int imgWeibo=0x7f0a005e;
         public static final int imgWeicoUserIcon=0x7f0a002c;
         public static final int imgWeobo=0x7f0a002f;
         public static final int indicator=0x7f0a0023;
         public static final int ivInit=0x7f0a000c;
+        public static final int iv_preview=0x7f0a0050;
         public static final int layComment=0x7f0a001c;
         public static final int layLocation=0x7f0a0016;
         public static final int layOpen=0x7f0a0019;
-        public static final int lay_weibo_detail=0x7f0a005a;
+        public static final int lay_weibo_detail=0x7f0a005d;
         public static final int layout_top=0x7f0a001e;
         public static final int liLoading=0x7f0a003c;
         public static final int load_more=0x7f0a0049;
         public static final int loading=0x7f0a0021;
         public static final int loadingImage=0x7f0a003d;
-        public static final int lvComment=0x7f0a0056;
+        public static final int lvComment=0x7f0a0059;
         public static final int lvGroup=0x7f0a003f;
         public static final int lv_list=0x7f0a001b;
         public static final int mListView=0x7f0a003b;
-        public static final int mWebView=0x7f0a0040;
-        public static final int min=0x7f0a0054;
-        public static final int month=0x7f0a0051;
+        public static final int mWebView=0x7f0a0042;
+        public static final int min=0x7f0a0057;
+        public static final int month=0x7f0a0054;
         public static final int oldViewContent=0x7f0a0034;
         public static final int pager=0x7f0a0022;
         public static final int pull_to_refresh_progress=0x7f0a0048;
         public static final int rb_cont=0x7f0a0014;
         public static final int rb_home=0x7f0a0013;
         public static final int rb_setting=0x7f0a0015;
+        public static final int slide_layout=0x7f0a004f;
         public static final int stroke=0x7f0a0000;
         public static final int tab_radiogroup=0x7f0a0012;
-        public static final int timePicker1=0x7f0a004f;
+        public static final int timePicker1=0x7f0a0052;
         public static final int tv_name=0x7f0a0024;
         public static final int txtAddress=0x7f0a0031;
         public static final int txtAttitudesNum=0x7f0a003a;
@@ -522,14 +542,14 @@ containing a value of this type.
         public static final int txtSendFrom=0x7f0a0027;
         public static final int txtText=0x7f0a0006;
         public static final int txtTitle=0x7f0a0003;
-        public static final int txtTopCenter=0x7f0a0041;
+        public static final int txtTopCenter=0x7f0a0040;
         public static final int txtUserName=0x7f0a0004;
         public static final int txtWeibo=0x7f0a0036;
         public static final int txtWeicoText=0x7f0a002e;
         public static final int txtWeicoUserName=0x7f0a002d;
         public static final int txtcomment1=0x7f0a002b;
         public static final int viewContent=0x7f0a0037;
-        public static final int year=0x7f0a0050;
+        public static final int year=0x7f0a0053;
     }
     public static final class layout {
         public static final int activity_comment=0x7f030000;
@@ -566,11 +586,12 @@ containing a value of this type.
         public static final int pull_to_refresh_load_more=0x7f03001f;
         public static final int refresh_loadmore_listview=0x7f030020;
         public static final int showalertdialog_layout=0x7f030021;
-        public static final int timepicker=0x7f030022;
-        public static final int top_title=0x7f030023;
-        public static final int weibo_buttom=0x7f030024;
-        public static final int weibo_detail=0x7f030025;
-        public static final int weibo_detail_header=0x7f030026;
+        public static final int slide_layout=0x7f030022;
+        public static final int timepicker=0x7f030023;
+        public static final int top_title=0x7f030024;
+        public static final int weibo_buttom=0x7f030025;
+        public static final int weibo_detail=0x7f030026;
+        public static final int weibo_detail_header=0x7f030027;
     }
     public static final class raw {
         public static final int private_key=0x7f050000;
@@ -643,6 +664,9 @@ containing a value of this type.
         public static final int weibosdk_demo_token_to_string_format_1=0x7f07001a;
     }
     public static final class style {
+        public static final int AnimFade=0x7f08000d;
+        public static final int AnimFade2=0x7f08000e;
+        public static final int Anim_style=0x7f08000c;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -656,11 +680,13 @@ containing a value of this type.
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
 
+
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
+
 
         
 
@@ -683,7 +709,7 @@ containing a value of this type.
          */
         public static final int AppTheme=0x7f080001;
         public static final int BottomToTopAnim=0x7f08000b;
-        /** BottomViewTheme  
+        /**  BottomViewTheme 
          */
         public static final int BottomViewTheme_Defalut=0x7f080009;
         public static final int BottomViewTheme_Transparent=0x7f08000a;

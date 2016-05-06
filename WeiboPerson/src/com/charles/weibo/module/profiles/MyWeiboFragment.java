@@ -17,12 +17,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.charles.weibo.R;
+import com.charles.weibo.ui.customwebview.ProgressWebView;
+import com.charles.weibo.ui.customwebview.WebChromeClientListener;
 
 public class MyWeiboFragment extends Fragment {
 
 	LayoutInflater inflater;
 	View v;
-	private WebView mWebView;
+	private ProgressWebView mWebView;
 	private ImageView btnRefresh;
 	private TextView txtTopCenter;
 	private String profileUrl = "http://weibo.com/solelywj?is_all=1";
@@ -47,7 +49,7 @@ public class MyWeiboFragment extends Fragment {
 	}
 
 	private void initCmp() {
-		mWebView = (WebView) v.findViewById(R.id.mWebView);
+		mWebView = (ProgressWebView) v.findViewById(R.id.mWebView);
 		btnRefresh = (ImageView) v.findViewById(R.id.btnRefresh);
 		txtTopCenter = (TextView) v.findViewById(R.id.txtTopCenter);
 	}
@@ -56,11 +58,12 @@ public class MyWeiboFragment extends Fragment {
 		txtTopCenter.setText(mContext.getResources().getString(R.string.mine));
 		WebSettings setting = mWebView.getSettings();
 		setSettings(setting);
-		mWebView.setWebChromeClient(new WebChromeClient());
+		//mWebView.setWebChromeClient(new WebChromeClient());
 		mWebView.setWebViewClient(new WebViewClient());
 		mWebView.loadUrl(profileUrl);
 	}
 
+	
 	private void initListerner() {
 		btnRefresh.setOnClickListener(new OnClickListener() {
 			@Override
@@ -88,4 +91,6 @@ public class MyWeiboFragment extends Fragment {
 		setting.setUseWideViewPort(true);
 		setting.setPluginState(PluginState.ON);
 	}
+
+
 }

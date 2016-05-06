@@ -6,11 +6,12 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.base.BaseActivity;
+import com.charles.weibo.module.base.BaseActivity;
 import com.charles.weibo.R;
 import com.charles.weibo.Config.Config;
 import com.charles.weibo.adapter.CommentAdapter;
@@ -199,5 +200,10 @@ public class CommentActivity extends BaseActivity implements CallHttpResponse{
 		QueryDataPraser praser = new QueryDataPraser(CommentActivity.this, Config.commentListAction, Config.GET);
 		asyncTask = new HttpAsyncTask(CommentActivity.this, COMMENT_CODE, params, this, false);
 		asyncTask.query(praser);
+	}
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
 	}
 }

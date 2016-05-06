@@ -18,10 +18,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.base.BaseActivity;
 import com.charles.weibo.R;
 import com.charles.weibo.common.Constants;
 import com.charles.weibo.entity.NearPlaceModel;
+import com.charles.weibo.module.base.BaseActivity;
 import com.charles.weibo.sdk.AccessTokenKeeper;
 import com.charles.weibo.sdk.LoginUserInfoKeeper;
 import com.charles.weibo.service.LocationHelper;
@@ -175,8 +175,7 @@ public class WriteWeicoActivity extends BaseActivity  {
 				}
 				break;
 		case R.id.btnCancel:
-			finish();
-			overridePendingTransition(R.anim.slide_right_in,R.anim.slide_right_out);
+					finish();
 			break;
 		case R.id.imgBarPicture:
 			break;
@@ -320,7 +319,6 @@ public void openOrCloseGPSModule() {
                             "发送一送微博成功, id = " + status.id, 
                             Toast.LENGTH_LONG).show();
                     finish();
-                    overridePendingTransition(R.anim.slide_right_in,R.anim.slide_right_out);
                 } else {
                     Toast.makeText(WriteWeicoActivity.this, response, Toast.LENGTH_LONG).show();
                 }

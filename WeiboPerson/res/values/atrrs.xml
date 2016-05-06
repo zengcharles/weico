@@ -35,4 +35,6 @@
 		<attr name="circleSeparation" format="dimension" />
 		<attr name="activeRadius" format="dimension" />
     </declare-styleable>     
+    
+    
 </resources>

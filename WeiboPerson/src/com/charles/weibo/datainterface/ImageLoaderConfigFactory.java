@@ -25,7 +25,7 @@ public class ImageLoaderConfigFactory {
 					.discCache(
 							new UnlimitedDiscCache(StorageUtils
 									.getOwnCacheDirectory(context,
-											"HKDN/cache/img")))
+											"Weico/cache/img")))
 					.defaultDisplayImageOptions(
 							new DisplayImageOptions.Builder()
 									// .showStubImage(R.drawable.ic_stub)

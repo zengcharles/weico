@@ -40,6 +40,8 @@ import com.charles.weibo.ui.SingleLayoutListView;
 import com.charles.weibo.ui.SingleLayoutListView.OnLoadMoreListener;
 import com.charles.weibo.ui.SingleLayoutListView.OnRefreshListener;
 import com.charles.weibo.utils.HttpAsyncTask;
+import com.charles.weibo.utils.IntentHelper;
+import com.charles.weibo.wedget.slideingactivity.IntentUtils;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 
 public class HomeFragment extends Fragment  implements CallHttpResponse    {
@@ -142,12 +144,15 @@ public class HomeFragment extends Fragment  implements CallHttpResponse    {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent()  ; 
+				/*Intent intent = new Intent()  ; 
 				intent.setClass(mContext,WeiboDetailtActivity.class);
 				weibo = weiboList.get(position-1); 
 				intent.putExtra("weibo", weibo);
-				startActivity(intent);
-				getActivity().overridePendingTransition(R.anim.slide_left_in,R.anim.slide_left_out);
+				startActivity(intent);*/
+				Bundle bundle = new Bundle() ;
+				weibo = weiboList.get(position-1); 
+				bundle.putSerializable("weibo", weibo);
+				IntentHelper.openActivity(getActivity(), WeiboDetailtActivity.class,bundle,0);
 			}
 		});
 	
@@ -155,12 +160,7 @@ public class HomeFragment extends Fragment  implements CallHttpResponse    {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-			/*	appMsg = AppMsg.makeText(getActivity(), "Click Here!", style);
-				appMsg.show();*/
-				Intent intent  = new Intent();
-				intent.setClass(getActivity(), WriteWeicoActivity.class);
-				startActivity(intent);
-				getActivity().overridePendingTransition(R.anim.slide_left_in,R.anim.slide_left_out);
+				IntentHelper.openActivity(getActivity(),WriteWeicoActivity.class);
 			}
 		});
 		

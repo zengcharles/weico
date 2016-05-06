@@ -25,7 +25,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.base.BaseActivity;
 import com.charles.weibo.R;
 import com.charles.weibo.Config.Config;
 import com.charles.weibo.adapter.CommenSimpletListAdapter;
@@ -36,6 +35,7 @@ import com.charles.weibo.entity.CommentModel;
 import com.charles.weibo.entity.UserModel;
 import com.charles.weibo.entity.WeiboModel;
 import com.charles.weibo.module.WriteCommentActivity;
+import com.charles.weibo.module.base.BaseActivity;
 import com.charles.weibo.sdk.AccessTokenKeeper;
 import com.charles.weibo.ui.ReheightGridView;
 import com.charles.weibo.ui.SingleLayoutListView;
@@ -416,14 +416,12 @@ public class WeiboDetailtActivity extends BaseActivity implements CallHttpRespon
 		switch (v.getId()) {
 		case R.id.btnBack:
 				finish();
-				overridePendingTransition(R.anim.slide_right_in,R.anim.slide_right_out);
 			break;
 		case R.id.btnComment:
 			if(String.valueOf(weibo.getId())!=null){
-				Intent intent =  new Intent();
-				intent.setClass(WeiboDetailtActivity.this, WriteCommentActivity.class);
-				intent.putExtra("weicoID", String.valueOf(weibo.getId())); 
-				startActivity(intent);
+				Bundle bundle = new Bundle();
+				bundle.putString("weicoID", String.valueOf(weibo.getId()));
+				((BaseActivity)this).openActivity(WriteCommentActivity.class,bundle,0);
 			}
 			break;
 		case R.id.btnReposts:

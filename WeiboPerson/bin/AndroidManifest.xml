@@ -4,17 +4,17 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk
-        android:minSdkVersion="8" />
+    <uses-sdk android:minSdkVersion="8" />
     <!-- Required  一些系统要求的权限，如访问网络等 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" /> 
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <!-- <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" /> -->
-    
-  <!-- 腾讯定位 sdk 要求的权限  (开始) -->
+
+
+    <!-- 腾讯定位 sdk 要求的权限  (开始) -->
     <!-- 通过GPS得到精确位置 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!-- 通过网络得到粗略位置 -->
@@ -42,11 +42,13 @@
         android:icon="@drawable/app_icon"
         android:theme="@style/AppTheme" >
 
-           <!-- key 配置, android:name="TencentMapSDK" android:value="您申请的Key" -->
-         <!-- <meta-data
+        <!-- key 配置, android:name="TencentMapSDK" android:value="您申请的Key" -->
+        <!--
+            <meta-data
             android:name="TencentMapSDK"
-            android:value="GRLBZ-GTOH4-SW3UN-D6MOH-UNZPJ-ODBY5" />  -->
-          <meta-data
+            android:value="GRLBZ-GTOH4-SW3UN-D6MOH-UNZPJ-ODBY5" />
+        -->
+        <meta-data
             android:name="TencentMapSDK"
             android:value="EXLBZ-B7TH5-CTZIK-QNQFR-76OGO-GNFCS" />
         <!-- Welcome Page -->
@@ -65,87 +67,78 @@
         <activity
             android:name="com.charles.weibo.module.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/Anim_style" >
         </activity>
         <activity
             android:name="com.charles.weibo.module.homepage.HomeFragment"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/Anim_style" >
         </activity>
         <activity
             android:name="com.charles.weibo.module.message.MessageFragment"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/Anim_style" >
         </activity>
         <activity
             android:name="com.charles.weibo.module.profiles.MyWeiboFragment"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/Anim_style" >
         </activity>
         <activity
             android:name="com.charles.weibo.module.LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/Anim_style" >
         </activity>
         <activity
             android:name="com.charles.weibo.module.AbstractActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/Anim_style" >
         </activity>
         <activity
             android:name="com.charles.weibo.module.detial.WeiboDetailtActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/Anim_style" >
         </activity>
-        
         <activity
             android:name="com.charles.weibo.module.WriteWeicoActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar"
+            android:theme="@style/Anim_style"
             android:windowSoftInputMode="adjustResize" >
         </activity>
-        
-           <activity
+        <activity
             android:name="com.charles.weibo.module.WriteCommentActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar"
-            android:windowSoftInputMode="adjustResize"
-             >
+            android:theme="@style/Anim_style"
+            android:windowSoftInputMode="adjustResize" >
         </activity>
-        
-          <activity
+        <activity
             android:name="com.charles.weibo.module.detial.ImagePagerActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar"
-            android:windowSoftInputMode="adjustResize"
-             >
+            android:theme="@style/Anim_style"
+            android:windowSoftInputMode="adjustResize" >
         </activity>
-           <activity
+        <activity
             android:name="com.charles.weibo.module.detial.ImageDetailFragment"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar"
-             >
+            android:theme="@style/Anim_style" >
         </activity>
-         <activity
+        <activity
             android:name="com.charles.weibo.module.message.CommentActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar"
-             >
+            android:theme="@style/Anim_style" >
         </activity>
-          <activity
+        <activity
             android:name="com.charles.weibo.module.LocationActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar"
-             >
+            android:theme="@style/Anim_style" >
         </activity>
-           
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->
         <activity
             android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
-            android:theme="@android:style/Theme.NoTitleBar"
+            android:theme="@style/Anim_style"
             android:windowSoftInputMode="adjustResize" >
         </activity>
 

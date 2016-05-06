@@ -10,20 +10,20 @@ public final class R {
 	public static final class drawable {
 		public static final int ic_launcher = 0x7f020053;
 		public static final int pic_loading = 0x7f020085;
-		public static final int wheel_bg = 0x7f0200b4;
-		public static final int wheel_val = 0x7f0200b5;
+		public static final int wheel_bg = 0x7f0200b6;
+		public static final int wheel_val = 0x7f0200b7;
 	}
 	public static final class id {
-		public static final int day = 0x7f0a0052;
-		public static final int hour = 0x7f0a0053;
-		public static final int min = 0x7f0a0054;
-		public static final int month = 0x7f0a0051;
-		public static final int timePicker1 = 0x7f0a004f;
-		public static final int year = 0x7f0a0050;
+		public static final int day = 0x7f0a0055;
+		public static final int hour = 0x7f0a0056;
+		public static final int min = 0x7f0a0057;
+		public static final int month = 0x7f0a0054;
+		public static final int timePicker1 = 0x7f0a0052;
+		public static final int year = 0x7f0a0053;
 	}
 	public static final class layout {
 		public static final int main = 0x7f03001b;
-		public static final int timepicker = 0x7f030022;
+		public static final int timepicker = 0x7f030023;
 	}
 	public static final class raw {
 		public static final int private_key = 0x7f050000;

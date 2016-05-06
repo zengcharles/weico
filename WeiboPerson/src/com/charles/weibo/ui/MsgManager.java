@@ -67,7 +67,6 @@ class MsgManager extends Handler {
         if (inAnimation == null) {
             inAnimation = AnimationUtils.loadAnimation(appMsg.getActivity(),
             		R.anim.slide_bottom_in);
-          // overridePendingTransition(R.anim.popwindow_in,R.anim.popwindow_in); 
         }
         if (outAnimation == null) {
             outAnimation = AnimationUtils.loadAnimation(appMsg.getActivity(),

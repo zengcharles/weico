@@ -14,12 +14,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.base.BaseActivity;
 import com.charles.weibo.R;
 import com.charles.weibo.Config.Config;
 import com.charles.weibo.common.Constants;
 import com.charles.weibo.datainterface.CallHttpResponse;
 import com.charles.weibo.datainterface.QueryDataPraser;
+import com.charles.weibo.module.base.BaseActivity;
 import com.charles.weibo.sdk.AccessTokenKeeper;
 import com.charles.weibo.sdk.LoginUserInfoKeeper;
 import com.charles.weibo.ui.AppMsg;
@@ -160,7 +160,6 @@ public class WriteCommentActivity extends BaseActivity  implements CallHttpRespo
 				break;
 		case R.id.btnCancel:
 			this.finish();
-			overridePendingTransition(R.anim.slide_right_in,R.anim.slide_right_out);
 			break;
 		case R.id.imgBarAt:
 			break;

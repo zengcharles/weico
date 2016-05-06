@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.charles.weibo.R;
+import com.charles.weibo.utils.IntentHelper;
 
 public class MessageFragment extends Fragment {
 	LayoutInflater inflater; 
@@ -49,9 +50,10 @@ public class MessageFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(); 
+				/*Intent intent = new Intent(); 
 				intent.setClass(getActivity(),CommentActivity.class);
-				startActivity(intent);
+				startActivity(intent);*/
+				IntentHelper.openActivity(getActivity(), CommentActivity.class);
 			}
 		});
 	}

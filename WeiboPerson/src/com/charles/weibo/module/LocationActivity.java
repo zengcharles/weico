@@ -17,7 +17,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.base.BaseActivity;
+import com.charles.weibo.module.base.BaseActivity;
 import com.charles.weibo.R;
 import com.charles.weibo.Config.Config;
 import com.charles.weibo.adapter.NearPlaceAdapter;
@@ -125,7 +125,6 @@ public class LocationActivity extends BaseActivity implements CallHttpResponse{
 				intent.putExtra("place_info", np);
 				setResult(RESULT_CODE, intent);
 				finish();
-				overridePendingTransition(R.anim.slide_right_in,R.anim.slide_right_out);
 			}
 		});
 		
@@ -134,7 +133,6 @@ public class LocationActivity extends BaseActivity implements CallHttpResponse{
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				finish() ;
-				overridePendingTransition(R.anim.slide_right_in,R.anim.slide_right_out);
 			}
 		}) ; 
 	}
