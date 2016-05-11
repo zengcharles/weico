@@ -11,6 +11,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.charles.weibo.R;
+import com.charles.weibo.utils.Options;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class ImageGridViewAdapter extends BaseAdapter {
@@ -18,10 +20,13 @@ public class ImageGridViewAdapter extends BaseAdapter {
 	private Context mContext ;
 	private LayoutInflater inflater ;
 	
+	private DisplayImageOptions options;
+	
 	public  ImageGridViewAdapter(Context mContext, ArrayList<String> imgUrlList){
 		this.mContext = mContext ;
 		this.imgUriList = imgUrlList;
 		this.inflater = inflater.from(mContext);
+		options = Options.getListOptions();
 	}
 	
 	@Override
@@ -58,7 +63,7 @@ public class ImageGridViewAdapter extends BaseAdapter {
 		try {
 				String imgUri = imgUriList.get(position);
 				if(!TextUtils.isEmpty(imgUri))
-				ImageLoader.getInstance().displayImage(imgUri, holder.imgWeobo);
+				ImageLoader.getInstance().displayImage(imgUri, holder.imgWeobo,options);
 				
 		} catch (Exception e) {
 			// TODO: handle exception

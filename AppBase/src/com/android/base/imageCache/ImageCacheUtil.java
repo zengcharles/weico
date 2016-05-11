@@ -5,6 +5,7 @@ import java.io.File;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Environment;
 import android.widget.ImageView;
 
 import com.android.base.R;
@@ -38,10 +39,12 @@ public class ImageCacheUtil {
 	 */
 
 	public static void init(Context context) {
-		File cacheDir = StorageUtils.getOwnCacheDirectory(context,
-				AppConfig.IMAGE_CACHE_PATH);
-
+		String filePath = Environment.getExternalStorageDirectory() +
+                "/Android/data/" + context.getPackageName() + "/imageCache/";
 		
+		File cacheDir = StorageUtils.getOwnCacheDirectory(context,
+				filePath);
+	
 		ImageLoaderConfiguration cfg = new ImageLoaderConfiguration.Builder(context)
 		.threadPriority(Thread.NORM_PRIORITY - 2)
 		.denyCacheImageMultipleSizesInMemory()

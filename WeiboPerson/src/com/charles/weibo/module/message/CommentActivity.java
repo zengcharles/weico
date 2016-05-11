@@ -3,27 +3,32 @@ package com.charles.weibo.module.message;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.charles.weibo.module.base.BaseActivity;
 import com.charles.weibo.R;
 import com.charles.weibo.Config.Config;
+import com.charles.weibo.adapter.CardsAnimationAdapter;
 import com.charles.weibo.adapter.CommentAdapter;
 import com.charles.weibo.datainterface.CallHttpResponse;
 import com.charles.weibo.datainterface.QueryDataPraser;
 import com.charles.weibo.entity.CommentModel;
-import com.charles.weibo.entity.UserModel;
+import com.charles.weibo.http.json.CommentListJson;
+import com.charles.weibo.module.base.BaseActivity;
 import com.charles.weibo.sdk.AccessTokenKeeper;
 import com.charles.weibo.ui.SingleLayoutListView;
 import com.charles.weibo.ui.SingleLayoutListView.OnLoadMoreListener;
 import com.charles.weibo.ui.SingleLayoutListView.OnRefreshListener;
+import com.charles.weibo.utils.ACache;
 import com.charles.weibo.utils.HttpAsyncTask;
+import com.charles.weibo.utils.StringUtils;
+import com.nhaarman.listviewanimations.swinginadapters.AnimationAdapter;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 public class CommentActivity extends BaseActivity implements CallHttpResponse{
 	
@@ -31,17 +36,20 @@ public class CommentActivity extends BaseActivity implements CallHttpResponse{
 	private TextView txtTopCenter ;
 	private ImageView btnBack ; 
 	
+	private ProgressBar mProgressBar ;
+	
 	private SingleLayoutListView mListView ; 
-	private Oauth2AccessToken mAccessToken ; 
-	private CommentAdapter commentAdapter;
-	private ArrayList<CommentModel> commentArray ;
+	private CommentAdapter mAdapter;
+	private ArrayList<CommentModel> commentList ;
+	
 	private HttpAsyncTask asyncTask ; 
 	private final int COMMENT_CODE  = 100;
+	private static String CACHE_FLAG = "CommentActivity";
+	private static final int QUERY_DEFAULT_NUM = 20 ;
 	
-	private int pageIndex = 1;
+	private int pageIndex = 0;
 	private int totalPage = 0 ;
 	private boolean isRefresh =false;
-
 	
 	@Override
 	public void onClick(View v) {
@@ -51,7 +59,6 @@ public class CommentActivity extends BaseActivity implements CallHttpResponse{
 			 		finish();
 					overridePendingTransition(R.anim.slide_right_in,R.anim.slide_right_out);
 			break;
-
 		default:
 			break;
 		}
@@ -70,20 +77,23 @@ public class CommentActivity extends BaseActivity implements CallHttpResponse{
 		mListView = (SingleLayoutListView)findViewById(R.id.mListView);	
 		txtTopCenter = (TextView)findViewById(R.id.txtTopCenter) ; 
 		btnBack= (ImageView)findViewById(R.id.btnBack);
+		mProgressBar = (ProgressBar)findViewById(R.id.progressBar);
 	}
 
 	@Override
 	public void initData() {
 		// TODO Auto-generated method stub
 		txtTopCenter.setText("所有评论");
-		mAccessToken = AccessTokenKeeper.readAccessToken(this); 
-		commentArray = new ArrayList<CommentModel>();
-		commentAdapter = new CommentAdapter(CommentActivity.this, commentArray);
-		mListView.setAdapter(commentAdapter);
+		commentList = new ArrayList<CommentModel>();
+		mAdapter = new CommentAdapter(CommentActivity.this, commentList);
+		AnimationAdapter animationAdapter = new CardsAnimationAdapter(mAdapter);
+	    animationAdapter.setAbsListView(mListView);
+	    mListView.setAdapter(animationAdapter);
 		mListView.setCanLoadMore(true);
 		mListView.setCanRefresh(true);
 		mListView.setAutoLoadMore(true);
-		queryComment(pageIndex);
+		
+		loadData(pageIndex);
 	}
 
 	@Override
@@ -96,8 +106,7 @@ public class CommentActivity extends BaseActivity implements CallHttpResponse{
 				// TODO 下拉刷新
 				pageIndex = 1; 
 				isRefresh = true;
-			
-				queryComment(pageIndex);
+				loadData(pageIndex);
 				
 			}
 
@@ -107,7 +116,7 @@ public class CommentActivity extends BaseActivity implements CallHttpResponse{
 			public void onLoadMore() {
 				// TODO Auto-generated method stub
 				pageIndex = pageIndex+1;
-				queryComment(pageIndex);
+				loadData(pageIndex);
 			}
 		});
 		
@@ -130,77 +139,75 @@ public class CommentActivity extends BaseActivity implements CallHttpResponse{
 		// TODO Auto-generated method stub
 		switch (requestCode) {
 		case COMMENT_CODE:
-				if(result!= null){
-					JSONArray array = result.optJSONArray("comments"); 
-					try{
-					if(array.length()>0){
-						if(isRefresh){
-							commentArray.clear();
-						}
-						for (int i = 0; i < array.length(); i++) {
-							
-								CommentModel  comment = new CommentModel();
-								JSONObject obj = array.optJSONObject(i);
-								comment.setCreated_at(obj.getString("created_at"));
-								comment.setId(obj.getLong("id"));
-								comment.setText(obj.getString("text"));
-								comment.setSource(obj.getString("source"));
-								JSONObject userObject = obj.optJSONObject("user"); 
-								if(userObject!=null){
-									UserModel user  = new UserModel(userObject);
-									comment.setUser(user);
-								}
-								comment.setMid(obj.getString("mid"));
-								comment.setIdstr(obj.getString("idstr"));
-								comment.setStatus(obj.optJSONObject("status"));
-								comment.setTotal_number(result.getInt("total_number"));
-								comment.setReply_comment(obj.optJSONObject("reply_comment"));
-								commentArray.add(comment);
-								commentAdapter.notifyDataSetChanged();
-							
-						}
-						totalPage = result.getInt("total_number");
-						
-						if (pageIndex == 1) {
-							mListView.onRefreshComplete(); // 下拉刷新完成
-						} else {
-							mListView.onLoadMoreComplete(); // 加载更多完成
-						}
-						
-						if (pageIndex < totalPage ) {
-							mListView.setCanLoadMore(true);
-						} else {
-							mListView.setNoMoreData();
-							mListView.setCanLoadMore(false);
-						}
-					}
-					}catch(Exception e){
-						e.printStackTrace();
-					}
-				}
+			if (result != null) {
+				getResult(result.toString());
+			}
 			break;
-
 		default:
 			break;
 		}
-		
 	}
 
+	public void getResult(String strResult) {
+		JSONObject result;
+		try {
+			result = new JSONObject(strResult);
+
+			setCacheStr(CACHE_FLAG + pageIndex, result.toString());
+			if (result != null) {
+				if (isRefresh) {
+					isRefresh = false;
+					commentList.clear();
+				}
+				totalPage = result.getInt("total_number");
+
+				ArrayList<CommentModel> list = CommentListJson.instance(this).readJsonCommentModels(result.toString());
+				mAdapter.appendList(list);
+				mProgressBar.setVisibility(View.GONE);
+
+				if (pageIndex == 1) {
+					mListView.onRefreshComplete(); // 下拉刷新完成
+				} else {
+					mListView.onLoadMoreComplete(); // 加载更多完成
+				}
+
+				if (pageIndex >= totalPage) {
+					mListView.setNoMoreData();
+					mListView.setCanLoadMore(false);
+				}
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+    
 	@Override
 	public void onHttpError(int requestCode, int errCode) {
 		// TODO Auto-generated method stub
 		
 	}
 	
-	private void queryComment(int pageIndex ){
+	private void loadData(int pageIndex ){
+		if(hasNetWork()){
 		HashMap<String,Object> params = new HashMap<String,Object>();
-		params.put("count", 20);
+		params.put("count", QUERY_DEFAULT_NUM);
 		params.put("page", pageIndex);
 		params.put("access_token", mAccessToken.getToken()); 
 		QueryDataPraser praser = new QueryDataPraser(CommentActivity.this, Config.commentListAction, Config.GET);
 		asyncTask = new HttpAsyncTask(CommentActivity.this, COMMENT_CODE, params, this, false);
 		asyncTask.query(praser);
+		}else{
+				mListView.onLoadMoreComplete();
+	            mProgressBar.setVisibility(View.GONE);
+	            showShortToast(getString(R.string.not_network));
+	            String result = getCacheStr(CACHE_FLAG + pageIndex);
+	            if (!StringUtils.isEmpty(result)) {
+	                getResult(result);
+	            }
+		}
 	}
+	
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub

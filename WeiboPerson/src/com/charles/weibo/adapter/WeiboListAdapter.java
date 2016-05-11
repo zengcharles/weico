@@ -22,45 +22,56 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.android.base.imageCache.ImageCacheUtil;
 import com.charles.weibo.R;
 import com.charles.weibo.entity.UserModel;
 import com.charles.weibo.entity.WeiboModel;
-import com.charles.weibo.module.MainActivity;
 import com.charles.weibo.module.detial.ImagePagerActivity;
 import com.charles.weibo.ui.ReheightGridView;
 import com.charles.weibo.utils.CommonUtils;
+import com.charles.weibo.utils.Options;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tandong.bottomview.view.BottomView;
 
 public class WeiboListAdapter extends BaseAdapter  {
-	private ArrayList<WeiboModel> weiboList ; 
+	private ArrayList<WeiboModel> lists ; 
 	private Context mContext ;
 	private ImageGridViewAdapter imgAdapter1;
 	private ImageGridViewAdapter imgAdapter2;
 	private ListView lv_menu_list;
 	private BottomView bottomView;
 	
+	protected DisplayImageOptions options;
+	
 	View _lay_old_weibo ;
 	LayoutInflater inflater  ; 
 	
 	public WeiboListAdapter(ArrayList<WeiboModel> weiboList ,Context mContext){
-		this.weiboList = weiboList; 
+		this.lists = weiboList; 
 		this.mContext = mContext ; 
-		
+		options = Options.getListOptions();
 	}
 	
+	public void appendList (List<WeiboModel> list){
+		if(!lists.containsAll(list)&&list!=null&&list.size()>0){
+			lists.addAll(list);
+		}
+		notifyDataSetChanged();
+	}
+	
+	 
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return weiboList.size();
+		return lists.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
 		// TODO Auto-generated method stub
-		return weiboList.indexOf(position);
+		return lists.indexOf(position);
 	}
 
 	@Override
@@ -102,7 +113,7 @@ public class WeiboListAdapter extends BaseAdapter  {
 		}
 		
 		try{
-			final WeiboModel weibo = weiboList.get(position);
+			final WeiboModel weibo = lists.get(position);
 		if(weibo!=null){
 			final UserModel user = weibo.getUser();
 			holder.imgWeibo.setVisibility(View.GONE);
@@ -116,12 +127,12 @@ public class WeiboListAdapter extends BaseAdapter  {
 			holder.txtCommentNum.setText(String.valueOf(weibo.getComments_count()));
 			holder.txtAttitudesNum.setText(String.valueOf(weibo.getAttitudes_count()));
 			if(!TextUtils.isEmpty(user.getProfile_image_url())){
-				ImageLoader.getInstance().displayImage(user.getProfile_image_url(),holder.imgUserIcon);
+				ImageLoader.getInstance().displayImage(user.getProfile_image_url(),holder.imgUserIcon,options);
 			}
 			if(weibo.getPic_urls().size()==1){
 				holder.imgWeibo.setVisibility(View.VISIBLE);
 				if(!TextUtils.isEmpty(weibo.getPic_urls().get(0))){
-					ImageLoader.getInstance().displayImage(weibo.getPic_urls().get(0),holder.imgWeibo);
+					ImageLoader.getInstance().displayImage(weibo.getPic_urls().get(0),holder.imgWeibo,options);
 					holder.imgWeibo.setOnClickListener(new OnClickListener() {
 						
 						@Override
@@ -163,7 +174,7 @@ public class WeiboListAdapter extends BaseAdapter  {
 				if(oldweibo.getPic_urls().size()==1){
 					holder.imgOldWeibo.setVisibility(View.VISIBLE);
 					if(!TextUtils.isEmpty(oldweibo.getPic_urls().get(0))){
-						ImageLoader.getInstance().displayImage(oldweibo.getPic_urls().get(0),holder.imgOldWeibo);
+						ImageLoader.getInstance().displayImage(oldweibo.getPic_urls().get(0),holder.imgOldWeibo,options);
 						holder.imgOldWeibo.setOnClickListener(new OnClickListener() {
 							
 							@Override

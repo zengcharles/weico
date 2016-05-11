@@ -85,10 +85,10 @@ public class HttpAsyncTask extends AsyncTask<HttpQuery , Void,JSONObject> {
 	}
 	
 	public void startLoadingDialog(){
-		if(loadingProgress == null){
+		/*if(loadingProgress == null){
 			loadingProgress = LoadingProgress.createDialog(mContext);
 		}
-		loadingProgress.show();		
+		loadingProgress.show();		*/
 	}
 	
     public void stopLoadingDialog(){

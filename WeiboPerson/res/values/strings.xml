@@ -8,6 +8,8 @@
     <string name="tab_home">首頁</string>
     <string name="tab_msg">信息</string>
     <string name="tab_my">我</string>
+    <string name="not_network">没有网络</string>
+    
 
     <!-- weibo sdk -->
     <string name="weibosdk_demo_token_to_string_format_1">Token：%1$s \n有效期：%2$s</string>

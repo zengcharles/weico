@@ -46,8 +46,7 @@ public class LocationHelper implements TencentLocationListener {
 			TencentLocationRequest request = TencentLocationRequest.create()
 					.setInterval(5000)
 					.setRequestLevel(TencentLocationRequest.REQUEST_LEVEL_GEO);
-			TencentLocationManager.getInstance(mContext)
-					.requestLocationUpdates(request, this);
+			TencentLocationManager.getInstance(mContext).requestLocationUpdates(request, this);
 		}
 	}
 

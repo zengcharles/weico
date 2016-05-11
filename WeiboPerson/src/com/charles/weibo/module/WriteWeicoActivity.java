@@ -100,7 +100,7 @@ public class WriteWeicoActivity extends BaseActivity  {
 	public void initData() {
 		 // 获取当前已保存过的 Token
 		txtUserName.setText(LoginUserInfoKeeper.readUserInfo(this).getName());
-		mLocationHelper = new LocationHelper(WriteWeicoActivity.this);
+		mLocationHelper = new LocationHelper(this);
 		mContext = WriteWeicoActivity.this;
         mAccessToken = AccessTokenKeeper.readAccessToken(this);
         // 对statusAPI实例化

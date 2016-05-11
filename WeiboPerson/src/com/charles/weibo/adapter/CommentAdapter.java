@@ -2,6 +2,7 @@ package com.charles.weibo.adapter;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +21,8 @@ import com.charles.weibo.entity.UserModel;
 import com.charles.weibo.entity.WeiboModel;
 import com.charles.weibo.module.WriteCommentActivity;
 import com.charles.weibo.utils.CommonUtils;
+import com.charles.weibo.utils.Options;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class CommentAdapter  extends BaseAdapter{
@@ -27,11 +30,21 @@ public class CommentAdapter  extends BaseAdapter{
 	private LayoutInflater inflater ;
 	private Context mContext ; 
 	
+	protected DisplayImageOptions options;
+	
 	public CommentAdapter(Context mComtext, ArrayList<CommentModel> array){
 		this.array = array ;
 		this.mContext = mComtext;
 		this.inflater = inflater.from(mContext) ;
+		options =Options.getListOptions(); 
 	}
+	
+    public void appendList(List<CommentModel> list) {
+        if (!array.containsAll(list) && list != null && list.size() > 0) {
+        	array.addAll(list);
+        }
+        notifyDataSetChanged();
+    }
 	
 	@Override
 	public int getCount() {
@@ -81,7 +94,7 @@ public class CommentAdapter  extends BaseAdapter{
 			if(comment!=null){
 				UserModel user = comment.getUser(); 
 				if(user!=null){
-					ImageLoader.getInstance().displayImage(user.getProfile_image_url(), holder.imgUserIcon);
+					ImageLoader.getInstance().displayImage(user.getProfile_image_url(), holder.imgUserIcon,options);
 					holder.txtUserName.setText(user.getName());
 					Date date = CommonUtils.StrToDate1(comment.getCreated_at());
 					holder.txtCreateTime.setText(CommonUtils.timestampToString(date));
@@ -92,7 +105,7 @@ public class CommentAdapter  extends BaseAdapter{
 						holder.txtcomment1.setText(status.getText());
 						UserModel statusUser = status.getUser() ;
 							if(statusUser!=null){
-								ImageLoader.getInstance().displayImage(user.getProfile_image_url(), holder.imgWeicoUserIcon);
+								ImageLoader.getInstance().displayImage(user.getProfile_image_url(), holder.imgWeicoUserIcon,options);
 								holder.txtWeicoUserName.setText(statusUser.getName());
 								holder.txtWeicoText.setText(status.getText());
 								

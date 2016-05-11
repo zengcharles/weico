@@ -1,6 +1,10 @@
 package com.charles.weibo.module;
 
+import java.io.File;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.FragmentActivity;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
@@ -8,6 +12,9 @@ import android.widget.RadioButton;
 import android.widget.TabHost;
 
 import com.charles.weibo.R;
+import com.charles.weibo.utils.FileUtil;
+import com.charles.weibo.utils.TimeUtil;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class MainActivity extends FragmentActivity implements
 		OnCheckedChangeListener {
@@ -64,5 +71,34 @@ public class MainActivity extends FragmentActivity implements
 			}
 		}
 	}
+	
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		
+		/* 定期清理ImageLoader缓存 */
+		// 若sharePrefence里上次清理时间为空或者间隔大于1个星期，清空SD缓存图片
+		SharedPreferences _cacheImgInfo = getSharedPreferences(
+				"cache_img_info", 0);
+		String _lastClearDate = _cacheImgInfo.getString("lastClearDate", null);
+		if (_lastClearDate != null) {
+			// 对比今日日期和上次清理缓存日期，若>1星期，清理SD图片缓存
+			if (TimeUtil.isNeedToClearImgCache(_lastClearDate)) {
+				ImageLoader.getInstance().clearDiscCache();
+				// 储存当前时间为lastClearDate
+				_cacheImgInfo.edit()
+						.putString("lastClearDate", TimeUtil.getCurDate())
+						.commit();
 
+				// 清除
+				String filePath = Environment.getExternalStorageDirectory() +
+		                "/Android/data/" + this.getPackageName() + "/imageCache/";
+				FileUtil.delete(new File(filePath));
+			}
+		} else {
+			// 储存当前时间为lastClearDate
+			_cacheImgInfo.edit().putString("lastClearDate", TimeUtil.getCurDate()).commit();
+		}
+	}
 }

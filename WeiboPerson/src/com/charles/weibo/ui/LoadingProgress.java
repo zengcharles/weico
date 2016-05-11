@@ -33,7 +33,7 @@ public class LoadingProgress extends Dialog{
      * @return
      */
     public static LoadingProgress createDialog(Context context){
-    	loadingProgress = new LoadingProgress(context,R.style.LoadingProgressDialog);
+    	loadingProgress = new LoadingProgress(context,R.style.LoadingDialog);
     	loadingProgress.setContentView(R.layout.loading);
     	loadingProgress.getWindow().getAttributes().gravity = Gravity.CENTER;
     	return loadingProgress;
