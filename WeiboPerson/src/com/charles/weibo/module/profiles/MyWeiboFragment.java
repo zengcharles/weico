@@ -15,8 +15,10 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.charles.weibo.R;
+import com.charles.weibo.http.HttpUtil;
 import com.charles.weibo.ui.customwebview.ProgressWebView;
 import com.charles.weibo.ui.customwebview.WebChromeClientListener;
 
@@ -60,7 +62,16 @@ public class MyWeiboFragment extends Fragment {
 		setSettings(setting);
 		//mWebView.setWebChromeClient(new WebChromeClient());
 		mWebView.setWebViewClient(new WebViewClient());
-		mWebView.loadUrl(profileUrl);
+		loadWebView();
+	}
+	
+	public void loadWebView (){
+		if(HttpUtil.isNetworkAvailable(getActivity())){
+			mWebView.loadUrl(profileUrl);
+			mWebView.setVisibility(View.VISIBLE);
+		}else{
+			Toast.makeText(getActivity(), getActivity().getString(R.string.not_network), Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	
@@ -68,7 +79,7 @@ public class MyWeiboFragment extends Fragment {
 		btnRefresh.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				mWebView.loadUrl(profileUrl);
+				loadWebView();
 			}
 		});
 	}

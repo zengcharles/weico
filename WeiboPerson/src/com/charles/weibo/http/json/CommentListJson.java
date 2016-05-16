@@ -8,7 +8,6 @@ import org.json.JSONObject;
 
 import android.content.Context;
 
-import com.charles.weibo.entity.CommentM;
 import com.charles.weibo.entity.CommentModel;
 import com.charles.weibo.entity.UserModel;
 

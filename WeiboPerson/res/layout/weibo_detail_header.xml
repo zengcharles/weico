@@ -92,8 +92,6 @@
            	android:scaleType="fitXY"
            	android:visibility="gone"
             />
-       <!--  <include android:layout="@layout/gridview3x3"
-            android:visibility="gone"></include> -->
         
     </LinearLayout>
     <LinearLayout

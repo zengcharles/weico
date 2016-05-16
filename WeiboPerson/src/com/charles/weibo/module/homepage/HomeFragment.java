@@ -213,27 +213,6 @@ public class HomeFragment extends BaseFragment  implements CallHttpResponse    {
 				case WEIBO_LIST_QUERY_CODE:
 					if (result != null) {
 						getResult(result.toString());
-						/*if (isRefresh) {
-							weiboList.clear();
-							isRefresh = false;
-						}						
-						ArrayList<WeiboModel> list = WeiboListJson.instance(getActivity()).readJsonWeiboModels(result.toString());	
-						weiboList.addAll(list);
-						mAdapter.appendList(list);
-						
-						if (pageIndex == 1) {
-							mListView.onRefreshComplete(); // 下拉刷新完成
-							
-							 * if(!isFirstLoading){ Random r = new Random() ;
-							 * double d3 = r.nextDouble() * 2.5 ; //[1,2.5] int
-							 * i = (int)(d3*10) ; appMsg =
-							 * AppMsg.makeText(getActivity(), i+"条新微博", style);
-							 * appMsg.show(); }
-							 
-						} else {
-							mListView.onLoadMoreComplete(); // 加载更多完成
-						}
-						mProgressBar.setVisibility(View.GONE);*/
 					}
 						
 					break;

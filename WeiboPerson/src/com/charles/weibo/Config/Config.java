@@ -5,7 +5,7 @@ public class Config {
 	//网站后台基地址
 	public static String HOST = "https://api.weibo.com/2";  
 	
-	
+	public static String UPDATE_APP_URL = "http://app.pgyer.com/7227e5c8476ae27d07eda95071f68360.apk?v=1.1&sign=eed46b4d957f64ee49c99c6afda57107&t=57392f98&attname=WeiboPerson_v1.0.apk";
 	
   	
 	 //服务器Action地址

@@ -36,9 +36,6 @@ import com.sina.weibo.sdk.openapi.models.StatusList;
 import com.tencent.map.geolocation.TencentLocation;
 import com.tencent.tencentmap.mapsdk.map.GeoPoint;
 
-
-
-
 public class WriteWeicoActivity extends BaseActivity  {
 	private String TAG="WriteWeicoActivity" ; 
 	private TextView txtText; 
@@ -194,14 +191,14 @@ public class WriteWeicoActivity extends BaseActivity  {
 			/**
 			 * 增加经纬度==zx
 			 */
-			SharedPreferences preferences =getSharedPreferences("LocationSetting", Context.MODE_PRIVATE);
+			/*SharedPreferences preferences =getSharedPreferences("LocationSetting", Context.MODE_PRIVATE);
 			String location = preferences.getString("location", "");
 		
 			String loc[] = location.split(",");
 			if(loc.length!=0){
 				String lat = loc[0];  //纬度
 				String lon = loc[1]; //经度
-			}
+			}*/
 			break;
 		case R.id.btnClearLoc :
 			npLat ="" ; 

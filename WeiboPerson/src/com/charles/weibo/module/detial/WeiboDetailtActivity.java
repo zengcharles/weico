@@ -43,6 +43,7 @@ import com.charles.weibo.ui.SingleLayoutListView.OnLoadMoreListener;
 import com.charles.weibo.ui.SingleLayoutListView.OnRefreshListener;
 import com.charles.weibo.utils.CommonUtils;
 import com.charles.weibo.utils.HttpAsyncTask;
+import com.charles.weibo.utils.IntentHelper;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 
@@ -202,12 +203,13 @@ public class WeiboDetailtActivity extends BaseActivity implements CallHttpRespon
 				String commentID = String.valueOf(commentData.get(position-2).getId());
 				String weicoID = String.valueOf(weibo.getId());
 				if(commentID!=null){
-					Intent intent = new Intent();
-					intent.setClass(WeiboDetailtActivity.this, WriteCommentActivity.class);
-					intent.putExtra("commentID", commentID);
-					intent.putExtra("weicoID", weicoID);
-					startActivity(intent);
+					Bundle bundle = new Bundle();
+					bundle.putString("commentID", commentID) ;
+					bundle.putString("weicoID", weicoID);
+					IntentHelper.openActivity(WeiboDetailtActivity.this, WriteCommentActivity.class);
 				}
+				
+				
 			}
 		});
 		
@@ -310,15 +312,21 @@ public class WeiboDetailtActivity extends BaseActivity implements CallHttpRespon
 	}
 	
 	private void loadCommentData(int pageIndex){
-		HashMap<String,Object> params = new HashMap<String,Object>(); 
-		params.put("id",weibo.getId());
-		params.put("access_token",mAccessToken.getToken());
-		params.put("count", count);
-		params.put("page", pageIndex);
-		
-		QueryDataPraser praser = new QueryDataPraser(this, Config.commentDataAction,Config.GET);
-		queryTask = new HttpAsyncTask(this,	QUERY_COMMENT_CODE, params, this, true);
-		queryTask.query(praser);
+		if(hasNetWork()){
+			HashMap<String,Object> params = new HashMap<String,Object>(); 
+			params.put("id",weibo.getId());
+			params.put("access_token",mAccessToken.getToken());
+			params.put("count", count);
+			params.put("page", pageIndex);
+			
+			QueryDataPraser praser = new QueryDataPraser(this, Config.commentDataAction,Config.GET);
+			queryTask = new HttpAsyncTask(this,	QUERY_COMMENT_CODE, params, this, true);
+			queryTask.query(praser);
+		}else{
+			lvComment.onRefreshComplete();
+			lvComment.onLoadMoreComplete();
+			lvComment.setNoMoreData();
+		}
 	}
 	
 	
