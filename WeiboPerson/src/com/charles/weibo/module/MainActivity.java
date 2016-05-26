@@ -5,11 +5,14 @@ import java.io.File;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
+import android.view.KeyEvent;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RadioButton;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 import com.charles.weibo.R;
 import com.charles.weibo.utils.FileUtil;
@@ -100,5 +103,28 @@ public class MainActivity extends FragmentActivity implements
 			// 储存当前时间为lastClearDate
 			_cacheImgInfo.edit().putString("lastClearDate", TimeUtil.getCurDate()).commit();
 		}
+	}
+	
+	private boolean exitApp = false;
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+			if (exitApp) {
+				finish();
+			} else {
+				exitApp = true;
+				Toast.makeText(this, "再按一次返回鍵退出", Toast.LENGTH_SHORT).show();
+				new Handler().postDelayed(new Runnable() {
+					@Override
+					public void run() {
+						exitApp = false;
+					}
+				}, 2000);
+			}
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 }

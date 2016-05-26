@@ -31,6 +31,7 @@ public class Application extends android.app.Application {
 
 	public SerialPortFinder mSerialPortFinder = new SerialPortFinder();
 	private SerialPort mSerialPort = null;
+	private boolean isDownload  ;
 
 	public SerialPort getSerialPort(String serialPortPath,int serialPortBaudrate) throws SecurityException, IOException, InvalidParameterException {
 		if (mSerialPort == null) {
@@ -59,5 +60,7 @@ public class Application extends android.app.Application {
 	public void onCreate(){
 		super.onCreate();
 		ImageCacheUtil.init(this);
+		isDownload=false;
 	}
+
 }

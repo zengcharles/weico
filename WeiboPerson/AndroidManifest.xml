@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.charles.weibo"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.00.00" >
 
     <uses-sdk android:minSdkVersion="8" />
     <!-- Required  一些系统要求的权限，如访问网络等 -->
@@ -102,14 +102,14 @@
         <activity
             android:name="com.charles.weibo.module.WriteWeicoActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Anim_style"
-            android:windowSoftInputMode="adjustResize" >
+            android:windowSoftInputMode="adjustResize|adjustPan"
+            android:theme="@style/Anim_style">
         </activity>
         <activity
             android:name="com.charles.weibo.module.WriteCommentActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Anim_style"
-            android:windowSoftInputMode="adjustResize" >
+            android:windowSoftInputMode="adjustResize|adjustPan" >
         </activity>
         <activity
             android:name="com.charles.weibo.module.detial.ImagePagerActivity"
@@ -145,6 +145,16 @@
         <service
             android:name="com.sina.weibo.sdk.net.DownloadService"
             android:exported="false" >
+        </service>
+        
+         <activity android:name="com.charles.weibo.upgrade.NotificationUpdateActivity" 
+             android:launchMode="singleTask"
+             	>
+        </activity>
+
+        <service android:name="com.charles.weibo.upgrade.DownloadService" >
+        </service>
+        <service android:name="com.charles.weibo.upgrade.CheckVersionIService" >
         </service>
     </application>
 

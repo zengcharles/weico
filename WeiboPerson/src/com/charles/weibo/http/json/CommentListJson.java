@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.sax.StartElementListener;
 
 import com.charles.weibo.entity.CommentModel;
 import com.charles.weibo.entity.UserModel;
@@ -55,6 +56,7 @@ public class CommentListJson extends JsonPacket {
 				newModle.setTotal_number(jsonObject.getInt("total_number"));
 				newModle.setReply_comment(obj.optJSONObject("reply_comment"));
                 newModles.add(newModle);
+                
             }
         } catch (Exception e) {
         	e.printStackTrace();

@@ -6,6 +6,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,7 +21,9 @@ import com.charles.weibo.entity.CommentModel.ReplyComment;
 import com.charles.weibo.entity.UserModel;
 import com.charles.weibo.entity.WeiboModel;
 import com.charles.weibo.module.WriteCommentActivity;
+import com.charles.weibo.module.detial.WeiboDetailtActivity;
 import com.charles.weibo.utils.CommonUtils;
+import com.charles.weibo.utils.IntentHelper;
 import com.charles.weibo.utils.Options;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -127,13 +130,21 @@ public class CommentAdapter  extends BaseAdapter{
 					@Override
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
-						Intent intent = new Intent();
+						/*Intent intent = new Intent();
 						intent.setClass(mContext, WriteCommentActivity.class);
 						String commentID =  comment.getIdstr();
 						String weicoID = comment.getStatus().getIdstr();
 						intent.putExtra("weicoID", weicoID); 
 						intent.putExtra("commentID", commentID); 
-						mContext.startActivity(intent);
+						mContext.startActivity(intent);*/
+						
+						String commentID =  comment.getIdstr();
+						String weicoID = comment.getStatus().getIdstr();
+						Bundle bundle = new Bundle();
+						bundle.putString("weicoID", weicoID); 
+						bundle.putString("commentID", commentID); 
+						IntentHelper.openActivity(mContext, WriteCommentActivity.class, bundle, 0);
+						
 					}
 				});
 			}

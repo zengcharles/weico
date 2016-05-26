@@ -96,8 +96,7 @@ public class HttpUtils {
 		try {
 			// 设置超时时间
 			BasicHttpParams httpParams = new BasicHttpParams();
-			HttpConnectionParams.setConnectionTimeout(httpParams,
-					Config.REQUEST_TIMEOUT);
+			HttpConnectionParams.setConnectionTimeout(httpParams,Config.REQUEST_TIMEOUT);
 			HttpConnectionParams.setSoTimeout(httpParams, Config.SO_TIMEOUT);
 			// 新建http
 			client = new DefaultHttpClient(httpParams);

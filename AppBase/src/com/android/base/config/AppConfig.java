@@ -22,6 +22,7 @@ import com.nostra13.universalimageloader.utils.StorageUtils;
 
 public class AppConfig extends Application{
 	
+	private boolean isDownload = false;
 	 //网络超时设置
 	 public static final int REQUEST_TIMEOUT = 60 * 1000;// 设置请求超时10秒钟
 	 public static final int SO_TIMEOUT = 60 * 1000; // 设置等待数据超时时间10秒钟
@@ -112,5 +113,11 @@ public class AppConfig extends Application{
          // Initialize ImageLoader with configuration.
          ImageLoader.getInstance().init(config);// 全局初始化此配置
      }
- 	 
+ 	public boolean isDownload() {
+		return isDownload;
+	}
+
+	public void setDownload(boolean isDownload) {
+		this.isDownload = isDownload;
+	}
 }
